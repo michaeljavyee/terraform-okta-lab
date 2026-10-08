@@ -1,0 +1,16 @@
+# Terraform working files and state (state holds IDs and can hold secrets)
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*.log
+
+# Real variable values. The .example file is committed; the real one never is.
+terraform.tfvars
+*.auto.tfvars
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+.DS_Store

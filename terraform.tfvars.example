@@ -1,0 +1,8 @@
+# Copy to terraform.tfvars (gitignored) and fill in.
+# The API token is NOT set here. Export it in your shell instead:
+#   export TF_VAR_okta_api_token="<token>"
+
+okta_org_name = "dev-XXXXXX"
+
+# Optional. Admin Console > Applications > your test app > the ID in the URL.
+demo_app_id = ""
