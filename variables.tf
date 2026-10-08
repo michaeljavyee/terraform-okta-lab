@@ -1,5 +1,5 @@
 variable "okta_org_name" {
-  description = "Okta org subdomain, e.g. dev-123456 (the part before .okta.com)"
+  description = "Okta org subdomain, e.g. integrator-1234567 (the part before .okta.com, without -admin)"
   type        = string
 }
 

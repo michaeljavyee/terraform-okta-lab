@@ -2,7 +2,8 @@
 # The API token is NOT set here. Export it in your shell instead:
 #   export TF_VAR_okta_api_token="<token>"
 
-okta_org_name = "dev-XXXXXX"
+# Subdomain from your Admin Console URL, without "-admin".
+okta_org_name = "integrator-1234567"
 
 # Optional. Admin Console > Applications > your test app > the ID in the URL.
 demo_app_id = ""

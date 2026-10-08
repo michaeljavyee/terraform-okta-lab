@@ -5,9 +5,10 @@ rules, test users, a session policy that requires MFA for IT Admins, and an
 app assignment. Every change shows up as a `terraform plan` diff before it
 touches the tenant, instead of as a click nobody can trace later.
 
-> **Run this only against a free Okta developer org** (sign up at
-> [developer.okta.com](https://developer.okta.com/signup/)). It creates and
-> changes users, groups and policies. Never point it at a company tenant.
+> **Run this only against a free Okta Integrator org** (sign up at
+> [developer.okta.com/signup](https://developer.okta.com/signup/), "Integrator
+> Free Plan"). It creates and changes users, groups and policies. Never point
+> it at a company tenant.
 
 ## What's in the repo
 
@@ -29,7 +30,9 @@ members); **New Hires** is a static list Terraform owns outright.
 
 Needs Terraform 1.5+ (`brew install terraform`).
 
-1. Sign up for an Okta developer org. Note the subdomain: `dev-XXXXXX`.
+1. Sign up for the Okta Integrator Free Plan (it requires an email on a domain
+   you own, not Gmail). Note the subdomain from the Admin Console URL, minus
+   any `-admin`: `https://integrator-1234567-admin.okta.com` -> `integrator-1234567`.
 2. In the org: **Security > API > Tokens > Create Token**. Copy it once.
 3. Put the token in your shell, not in a file:
    ```sh
@@ -65,7 +68,7 @@ One attribute change, membership follows, no console clicks.
 - Group rules run asynchronously in Okta. `outputs.tf` waits 15 seconds before
   reading membership back; if Okta is slow, run `terraform refresh` and check again.
 - The policy uses `primary_factor`, which only exists on Okta Identity Engine
-  orgs. New developer orgs are Identity Engine.
+  orgs. Integrator Free Plan orgs are Identity Engine.
 - The provider is pinned to `~> 7.0`. Commit `.terraform.lock.hcl` after the
   first `init` so every run uses the same provider build.
 - CI runs `terraform fmt -check` and `terraform validate` only. It never has
